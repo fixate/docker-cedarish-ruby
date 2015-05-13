@@ -3,7 +3,7 @@
 set -e
 
 # Add app user
-adduser --disabled-password --home=/home/appuser --gecos "" appuser
+adduser --disabled-password --home=/app --gecos "" appuser
 
 # Install ruby using ruby-build
 
