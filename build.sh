@@ -11,7 +11,7 @@ adduser --disabled-password --home=/app --gecos "" appuser
 ruby_home="/usr/local"
 
 # Packages needed to build Ruby
-apt-get -y install build-essential zlib1g-dev libssl-dev libreadline-dev
+apt-get install -y autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
 
 # Use ruby-build to install Ruby
 clone_dir=/tmp/ruby-build-$$
@@ -22,7 +22,7 @@ unset clone_dir
 
 # Install Node runtime
 curl -sL https://deb.nodesource.com/setup | bash -
-apt-get install nodejs
+apt-get install -y nodejs
 
 # Install bundler
 gem install bundler
