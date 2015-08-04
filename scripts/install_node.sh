@@ -3,6 +3,9 @@
 set -e
 
 # Install Node runtime
-su appuser -c "echo prefix = ~/.bin >> ~/.npmrc && curl https://www.npmjs.org/install.sh | sh"
+curl -sL https://deb.nodesource.com/setup | bash -
+apt-get install -y nodejs
+
+npm install -g bower
 
 
