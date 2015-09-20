@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-set -e
+set -eo pipefail
 
-# Install Node runtime
-curl -sL https://deb.nodesource.com/setup | bash -
-apt-get install -y nodejs
+cd /tmp
+git clone --branch 'v4.1.0' --depth 1 https://github.com/nodejs/node
+cd node
+./configure
+make
+make install
 
-npm install -g bower
-
-
+cd ..
+rm -rf node
