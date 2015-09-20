@@ -3,12 +3,15 @@
 set -eo pipefail
 
 cd /tmp
-
-git clone --branch 'v4.1.0' --depth 1 https://github.com/nodejs/node
-cd node
+wget http://nodejs.org/dist/node-latest.tar.gz
+tar xvzf node-latest.tar.gz
+rm -f node-latest.tar.gz
+cd node-v*
 ./configure
-make
-make install
+CXX="g++ -Wno-unused-local-typedefs" make
+CXX="g++ -Wno-unused-local-typedefs" make
+cd /tmp
+rm -rf /tmp/node-v*
+npm install -g npm
+printf '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc
 
-cd ..
-rm -rf node
