@@ -12,6 +12,7 @@ CXX="g++ -Wno-unused-local-typedefs" make
 CXX="g++ -Wno-unused-local-typedefs" make install
 cd /tmp
 rm -rf /tmp/node-v*
-node_modules/.bin/npm install -g npm
 printf '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc
+export PATH="node_modules/.bin:$PATH"
+npm install -g npm
 
