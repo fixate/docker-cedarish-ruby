@@ -3,9 +3,10 @@
 set -eo pipefail
 
 cd /tmp
-wget http://nodejs.org/dist/node-latest.tar.gz
-tar xvzf node-latest.tar.gz
-rm -f node-latest.tar.gz
+NODE_DIST=${NODE_DIST:-node-latest}
+wget http://nodejs.org/dist/${NODE_DIST}.tar.gz -O node.tar.gz
+tar xvzf node.tar.gz
+rm -f node.tar.gz
 cd node-v*
 ./configure
 CXX="g++ -Wno-unused-local-typedefs" make
