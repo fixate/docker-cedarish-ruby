@@ -10,4 +10,4 @@ rm -f node.deb
 
 npm install -g node-gyp
 npm cache clear
-node-gyp configure
+# node-gyp configure
